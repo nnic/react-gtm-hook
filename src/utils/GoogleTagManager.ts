@@ -17,7 +17,7 @@ const setupGTM = (params: ISnippetsParams): ISetupGTM => {
 
   const getNoScript = (): HTMLElement => {
     const noScript = document.createElement('noscript')
-    noScript.innerHTML = getIframeSnippet(params.id, params.environment)
+    noScript.innerHTML = getIframeSnippet(params.id, params.environment, params.customDomain)
     return noScript
   }
 
@@ -26,7 +26,7 @@ const setupGTM = (params: ISnippetsParams): ISetupGTM => {
     if (params.nonce) {
       script.setAttribute("nonce", params.nonce);
     }
-    script.innerHTML = getGTMScript(params.dataLayerName, params.id, params.environment)
+    script.innerHTML = getGTMScript(params.dataLayerName, params.id, params.environment, params.customDomain)
     return script
   }
 
